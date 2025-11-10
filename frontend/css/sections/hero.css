@@ -1,46 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Aplicar Bebas Neue a todos los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #ffffff;
+}
+
+/* 2. Contenedor principal que centra y limita el ancho */
 .hero-container {
-  max-width: 1280px;
+  max-width: 1280px; 
   margin: 0 auto;
   padding: 0 1rem;
   width: 100%;
 }
 
+/* 3. Sección Hero (el recuadro grande con fondo) */
 .hero-section {
-  min-height: 100vh;
-  background: linear-gradient(
-    rgba(209, 208, 213, 0.816),
-    rgba(91, 7, 118, 0.789)
-  );
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* padding: 5rem; */
+  /* Fondo principal: Azul oscuro y la imagen decorativa */
+  background-color: #17244D; /* Color base similar al diseño */
+  
+  /* Uso de una imagen de fondo y un gradiente para simular el efecto del diseño */
+  background-image: 
+    /* Degradado superpuesto para oscurecer la imagen y crear el tono azulado */
+    linear-gradient(to right, rgba(23, 36, 77, 1) 50%, rgba(23, 36, 77, 0.7)),
+    url('/frontend/assets/images/estadistica.jpg'); 
+
+  background-size: cover;
+  background-position: right center; /* La imagen se alinea a la derecha */
+  background-repeat: no-repeat;
+  
+  min-height: 450px;
+  height: 50vh; 
+  padding: 3rem 5rem;
   border-radius: 0.5rem;
   margin: 1rem 0;
+  
+
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  align-items: center;
 }
 
-.hero-content h1,
-p {
-  text-align: left;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 3rem;
+/* 4. Contenido de texto y botón */
+.hero-content {
+  color: #FFFFFF; /* Texto blanco para alto contraste */
   max-width: 600px;
+  width: 50%; /* El contenido ocupa la mitad */
 }
 
+/* 5. Estilo para el Título (h1) */
+.hero-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; 
+  font-weight: normal; /* Bebas Neue se ve mejor con peso normal */
+  line-height: 1.1; 
+  margin-bottom: 1.5rem;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+/* 6. Estilo para el Párrafo (p) */
+.hero-content p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300; /* Ligero para el párrafo */
+  margin-bottom: 3rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* 7. Estilo para el Botón */
 .hero-btn {
-  background-color: rgb(100, 100, 232);
-  display: block;
+  background-color: #007BFF; /* Color de botón vibrante */
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 1rem 2rem;
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.25rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #0056b3;
+}
+
+.hero-image {
+width: auto;
+height: auto;
+
 }
