@@ -1,46 +1,102 @@
+/* === HERO SECTION === */
+
+/* Contenedor principal*/
 .hero-container {
-  max-width: 1280px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
   width: 100%;
 }
 
+/*Sección Hero */
 .hero-section {
-  min-height: 100vh;
-  background: linear-gradient(
-    rgba(209, 208, 213, 0.816),
-    rgba(91, 7, 118, 0.789)
-  );
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* padding: 5rem; */
-  border-radius: 0.5rem;
+  background-image:
+  linear-gradient(
+    120deg, 
+    rgba(23, 36, 77, 0.95) 0%, 
+    rgba(23, 36, 77, 0.85) 35%, 
+    rgba(23, 36, 77, 0.4) 70%, 
+    rgba(23, 36, 77, 0.1) 100%
+  ),
+  url("../../assets/images/estadistica.jpg");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+
+  min-height: 450px;  
+  height: 50vh;
+  padding: var(--section-padding) 5rem;
+  border-radius: var(--radius-md);
   margin: 1rem 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.hero-content h1,
-p {
+/* Contenido de texto y botón */
+.hero-content {
+  color: var(--color-bg);
+  max-width: 600px;
+  width: 50%;
   text-align: left;
 }
 
+/* Estilo para el Título (h1) */
 .hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--color-bg);
 }
 
+/* Párrafo */
 .hero-content p {
+  font-family: var(--font-body);
   font-size: 1.25rem;
+  font-weight: 300;
   margin-bottom: 3rem;
-  max-width: 600px;
+  line-height: 1.5;
+  color: var(--color-bg);
 }
 
+/* Botón principal */
 .hero-btn {
-  background-color: rgb(100, 100, 232);
-  display: block;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 1rem 2rem;
   border: none;
-  border-radius: 1rem;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: all var(--transition);
+}
+
+.hero-btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
+}
+
+/* Imagen */
+.hero-image {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
