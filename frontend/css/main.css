@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*=== Variables globales === */
 :root {
@@ -17,8 +16,8 @@
   --color-accent: #a8dadc;
 
   /* === Fonts === */
-  --font-body: 'Raleway', sans-serif;
-  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: "Raleway", sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
 
   /* === Layout Specs === */
   --max-width: 1200px;
@@ -47,7 +46,6 @@ body {
 }
 
 main {
-  padding-top: 100px;
   text-align: center;
 }
 
