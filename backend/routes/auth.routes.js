@@ -1,12 +1,10 @@
 import { supabase } from "../config/supabaseClient";
-import { verifyToken } from "../middleware/auth.middleware";
 import { Router } from "express";
 
-const router = Router();
+export const authRouter = Router();
 
 // Registro
-
-router.post("/sign-up", async (req, res) => {
+authRouter.post("/sign-up", async (req, res) => {
   try {
     const { email, password, fullName } = req.body;
 
@@ -48,6 +46,35 @@ router.post("/sign-up", async (req, res) => {
       user: authData.user,
     });
   } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// loggeo
+authRouter.post("/sign-in", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "email y password requeridas" });
+    }
+
+    // sing in
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      return res.status(400).json({ error: "Error iniciando sesión" });
+    }
+
+    res.status(200).json({
+      message: "Sesión iniciada",
+      session: data.session,
+    });
+  } catch (error) {
+    console.error("Error iniciando sesión", error);
     res.status(500).json({ error: error.message });
   }
 });
