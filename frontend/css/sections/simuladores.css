@@ -137,5 +137,10 @@
   height: 8px;
   cursor: pointer;
   background: var(--color-border);
+<<<<<<< HEAD
+  border-radius: 4px;
+}
+=======
   border-radius: 4px;
 }
+>>>>>>> b2b6256d1229dbd817422e78f98a1cabdeb436fa
