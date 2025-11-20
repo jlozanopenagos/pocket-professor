@@ -1,8 +1,9 @@
 // === CONFIGURACIÓN: Mapea contenedores → archivos HTML ===
 const LAYOUTS = {
   "header-container": "html/layouts/header.html",
-  "footer-container": "html/layouts/footer.html",
   "hero-main": "html/sections/hero.html",
+  "simuladores-container": "html/sections/simuladores.html",
+  "footer-container": "html/layouts/footer.html"
 };
 
 // === CACHÉ SIMPLE (evita recargar el mismo archivo) ===

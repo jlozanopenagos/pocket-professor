@@ -1,20 +1,21 @@
 /* Header */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   height: 70px;
-  background-color: white;
+  background-color: var(--color-bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
 .header-container {
-  max-width: 1200px;
+  /* max-width: var(--max-width); */
+  width: 100%;
   height: 100%;
-  margin: 0 auto;
-  padding: 0 32px;
+  /* margin: 0 3rem; */
+  padding: 0 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,13 +25,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #0a1f44;
+  color: var(--color-dark);
   font-weight: 700;
   font-size: 20px;
 }
 
 .logo-icon {
-  color: #0066ff;
+  color: var(--color-primary);
 }
 
 .logo-text {
@@ -40,38 +41,44 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
 
 /* Botones del header */
 .btn {
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 6px;
+  min-width: 130px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
 }
 
 .btn-primary {
-  background-color: #0066ff;
-  color: white;
+  background-color: var(--color-primary);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #0052cc;
+  background-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+  box-shadow: var(--shadow-button);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: #0a1f44;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  transition: all var(--transition);
 }
 
 .btn-secondary:hover {
-  background-color: #f5f7fa;
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
 }
 
 /* Responsive */
