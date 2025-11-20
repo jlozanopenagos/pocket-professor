@@ -1,0 +1,141 @@
+/* === MAIN CONTENT CONTAINER === */
+.main-content-container {
+  max-width: var(--max-width);
+  margin: 4rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* === SECTION TITLES === */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-dark);
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+}
+
+/* === HOW IT WORKS === */
+.how-it-works-section {
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--color-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  min-height: 200px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background-color: var(--color-accent);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+/* === SAVINGS SIMULATOR SECTION === */
+.savings-simulator-section {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.simulator-content {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+}
+
+.section-description {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  margin-left: 2rem;
+}
+
+.simulator-chart {
+  flex: 1;
+  max-width: 50%;
+}
+
+.chart-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* === SIMULATOR CONTROLS === */
+.simulator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.control-group label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: var(--color-border);
+  border-radius: 4px;
+}
