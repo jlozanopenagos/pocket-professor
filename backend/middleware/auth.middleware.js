@@ -1,10 +1,10 @@
-import { supabase } from "../config/supabaseClient";
+import { supabase } from "../config/supabaseClient.js";
 
 export const verifyToken = async (req, res, next) => {
   try {
-    const token = req.headers.authorization?.split(" ")[1];
+    const token = req.cookies["sb-access-token"];
 
-    if (!token) return res.status(401).json({ error: "No token" });
+    if (!token) return res.status(401).json({ error: "No token (cookie)" });
 
     const {
       data: { user },
