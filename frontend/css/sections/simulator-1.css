@@ -1,0 +1,309 @@
+/* === Layout del Simulador 1 === */
+.sim-main {
+  padding: 3rem 1rem;
+  background-color: #f8fafc;
+  min-height: 80vh;
+}
+
+.sim-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sim-header {
+  margin-bottom: 3rem;
+}
+
+.sim-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.sim-header p {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  max-width: 600px;
+  font-size: 1.1rem;
+}
+
+/* Grid de dos columnas */
+.sim-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* === Columna Izquierda: Controles === */
+.sim-controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.controls-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.control-group {
+  margin-bottom: 2rem;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.control-group label {
+  font-weight: 600;
+  color: var(--color-dark);
+  font-size: 0.95rem;
+}
+
+.value-display {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Range Slider Custom */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  background: #e2e8f0;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+/* Botones de Frecuencia */
+.frequency-toggle {
+  display: flex;
+  gap: 1rem;
+}
+
+.freq-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid var(--color-border);
+  background: #f1f5f9;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: all 0.2s;
+}
+
+.freq-btn.active {
+  background-color: #eff6ff;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Botón Principal */
+.action-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.primary-btn {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-button);
+}
+
+/* === Columna Derecha: Resultados === */
+.sim-results {
+  flex: 1;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+}
+
+/* Estados */
+.results-state {
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.results-state.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.results-state.visible {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 0.5s ease;
+}
+
+#results-placeholder {
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.placeholder-icon {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Resultados Contenido */
+#results-content h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.result-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.blue-card {
+  background-color: #eff6ff;
+  color: var(--color-primary);
+}
+
+.green-card {
+  background-color: #f0fdf4;
+  color: #15803d;
+}
+
+.card-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+/* Barra de progreso */
+.growth-chart {
+  margin: 2rem 0;
+}
+
+.growth-chart label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 12px;
+  background-color: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  width: 0%;
+  transition: width 1s ease;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.legend-capital {
+  color: var(--color-text-muted);
+}
+
+.legend-interest {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.success-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.success-btn:hover {
+  background-color: #059669;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .sim-grid {
+    flex-direction: column;
+  }
+  .sim-results {
+    width: 100%;
+    min-height: auto;
+  }
+}
