@@ -8,7 +8,7 @@ const loginWithProvider = async (provider) => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: provider,
       options: {
-        redirectTo: `${window.location.origin}/pocket-professor/frontend/auth/callback.html`,
+        redirectTo: `${window.location.origin}/pocket-professor/frontend/html/sections/auth.html`,
       },
     });
 

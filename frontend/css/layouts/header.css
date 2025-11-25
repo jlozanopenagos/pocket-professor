@@ -97,3 +97,21 @@
     font-size: 13px;
   }
 }
+
+.header-user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: #f8f9fa;
+}
+.user-email {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+#logout-btn {
+  min-width: auto;
+  padding: 0.5rem 1rem;
+}

@@ -27,7 +27,7 @@ loginBtn.addEventListener("click", () => {
 
 // Conectar endpoint de backend al formulario
 
-const API_BACKEND = "http://localhost:5000/api";
+const API_BACKEND = "http://127.0.0.1:5000/api";
 
 // SignUp Function
 const signUp = async (email, password, fullName) => {
@@ -92,7 +92,7 @@ formSignUp.addEventListener("submit", async (e) => {
     console.log("Cuenta creada con exito");
     form.reset();
     //redirigir
-    // window.location.href = "/pocket-professor/frontend/index.html";
+    window.location.href = "../../index.html";
   } catch (err) {
     alert(err.message);
   }
@@ -113,7 +113,7 @@ formSignIn.addEventListener("submit", async (e) => {
     console.log("logueado con exito");
     form.reset();
     // redirigir
-    // window.location.href = "/pocket-professor/frontend/index.html";
+    window.location.href = "/pocket-professor/frontend/index.html";
   } catch (err) {
     console.error("Error en login", err);
     alert(err.message);
