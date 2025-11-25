@@ -1,9 +1,10 @@
 /* ========================================
    SHARED SIMULATOR STYLES
    ======================================== */
+
 /* === Main Layout === */
 .sim-main {
-    padding: 3rem 1rem;
+    padding: var(--section-padding) 1rem;
     background-color: #f8fafc;
     min-height: 80vh;
 }
@@ -14,7 +15,7 @@
 }
 
 .sim-header {
-    margin-bottom: 3rem;
+    margin-bottom: var(--section-padding);
 }
 
 .sim-header h1 {
@@ -25,7 +26,6 @@
 }
 
 .sim-header p {
-    font-family: var(--font-body);
     color: var(--color-text-muted);
     max-width: 600px;
     font-size: 1.1rem;
@@ -47,7 +47,7 @@
 }
 
 .controls-card {
-    background: white;
+    background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: 2rem;
@@ -74,11 +74,11 @@
 .input-wrapper {
     display: flex;
     align-items: center;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     padding: 0.8rem 1rem;
-    background-color: white;
-    transition: border-color 0.2s;
+    background-color: var(--color-bg);
+    transition: border-color var(--transition);
 }
 
 .input-wrapper:focus-within {
@@ -92,7 +92,6 @@
     width: 100%;
     font-size: 1rem;
     color: var(--color-dark);
-    font-family: var(--font-body);
     background: transparent;
 }
 
@@ -119,7 +118,7 @@ input[type="range"] {
     width: 100%;
     height: 6px;
     border-radius: 5px;
-    background: #e2e8f0;
+    background: var(--color-border);
     outline: none;
     cursor: pointer;
 }
@@ -132,7 +131,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     background: var(--color-primary);
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid var(--color-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.1s;
 }
@@ -147,7 +146,7 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     background: var(--color-primary);
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid var(--color-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -162,6 +161,15 @@ input[type="range"]::-moz-range-thumb {
     color: var(--color-primary);
     font-weight: 700;
     font-size: 1rem;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
 }
 
 /* === Frequency Toggle (Simulator 1) === */
@@ -179,7 +187,7 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     font-weight: 600;
     color: var(--color-text-muted);
-    transition: all 0.2s;
+    transition: all var(--transition);
 }
 
 .freq-btn.active {
@@ -189,7 +197,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .freq-btn:hover {
-    background-color: #e2e8f0;
+    background-color: var(--color-border);
 }
 
 /* === Buttons === */
@@ -211,7 +219,7 @@ input[type="range"]::-moz-range-thumb {
 
 .primary-btn {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-bg);
 }
 
 .primary-btn:hover {
@@ -221,7 +229,7 @@ input[type="range"]::-moz-range-thumb {
 
 .success-btn {
     background-color: #10b981;
-    color: white;
+    color: var(--color-bg);
 }
 
 .success-btn:hover {
@@ -231,7 +239,7 @@ input[type="range"]::-moz-range-thumb {
 /* === Results Column === */
 .sim-results {
     flex: 1;
-    background: white;
+    background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: 2rem;
@@ -242,12 +250,11 @@ input[type="range"]::-moz-range-thumb {
 /* === Results States === */
 .results-state {
     width: 100%;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition);
 }
 
 .results-state.hidden {
     display: none;
-    opacity: 0;
 }
 
 .results-state.visible {
@@ -263,7 +270,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #results-placeholder h3 {
-    font-family: var(--font-body);
     font-size: 1.1rem;
     color: var(--color-dark);
     font-weight: 700;
@@ -303,7 +309,6 @@ input[type="range"]::-moz-range-thumb {
 
 /* === Results Content === */
 #results-content h3 {
-    font-family: var(--font-body);
     font-size: 1.25rem;
     color: var(--color-dark);
     margin-bottom: 0.5rem;

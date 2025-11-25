@@ -15,10 +15,9 @@
 }
 
 .section-subtitle {
-  font-family: var(--font-body);
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--color-muted);
+  color: var(--color-text-muted);
   margin-bottom: 2rem;
   padding: 0 1.5rem;
 }
@@ -71,9 +70,8 @@
 }
 
 .card-description {
-  font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-muted);
+  color: var(--color-text-muted);
   line-height: 1.4;
 }
 
@@ -115,12 +113,10 @@
 }
 
 .section-description {
-  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--color-text);
   margin-bottom: 3rem;
   line-height: 1.6;
-  /* margin-left: 2rem; */
 }
 
 .simulator-chart {
@@ -149,7 +145,6 @@
 
 .control-group label {
   display: block;
-  font-family: var(--font-body);
   font-weight: 600;
   color: var(--color-dark);
   margin-bottom: 0.5rem;

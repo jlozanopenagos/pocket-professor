@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*=== Variables globales === */
@@ -27,6 +26,7 @@
 
   /* === Effects === */
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
   --shadow-button: 0 4px 12px rgba(0, 102, 255, 0.3);
   --transition: 0.3s ease;
 }

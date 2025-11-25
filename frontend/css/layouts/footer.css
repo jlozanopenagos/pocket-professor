@@ -1,12 +1,12 @@
 .footer {
-  background: #0f172a;
-  color: white;
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
   padding: 20px;
   text-align: center;
 }
 
 .footer-nav a {
-  color: #e2e8f0;
+  color: var(--color-footer-text);
   text-decoration: none;
   margin: 0 10px;
 }
