@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interés Compuesto - PocketProfessor</title>
+
+    <link rel="stylesheet" href="../../css/layouts/header.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/layouts/footer.css" />
+    <link rel="stylesheet" href="../../css/sections/simulator-shared.css" />
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main class="sim-main">
+        <div class="sim-container">
+
+            <div class="sim-header">
+                <h1>El Poder del Interés Compuesto</h1>
+                <p>
+                    Un simulador clave para ver cómo tu dinero trabaja por ti a
+                    lo largo del tiempo. ¡Maximiza tus ganancias sin esfuerzo
+                    extra!
+                </p>
+            </div>
+
+            <div class="sim-grid">
+                <div class="sim-controls">
+                    <div class="controls-card">
+
+                        <div class="control-group">
+                            <label for="initial-investment">Cantidad de Inversión Inicial</label>
+                            <div class="input-wrapper">
+                                <span class="prefix">$</span>
+                                <input type="number" id="initial-investment" placeholder="1000" min="0" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="monthly-contribution">Aporte Mensual Adicional</label>
+                            <div class="input-wrapper">
+                                <span class="prefix">$</span>
+                                <input type="number" id="monthly-contribution" placeholder="100" min="0" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="interest-rate">Tasa de Interés Anual (%)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="interest-rate" placeholder="7" min="0" step="0.1" />
+                                <span class="suffix">%</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="years-period">Período de Inversión (Años)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="years-period" placeholder="10" min="1" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button id="calculate-btn" class="action-btn primary-btn">
+                        Calcular Crecimiento
+                        <span class="icon-graph">📈</span>
+                    </button>
+                </div>
+
+                <div class="sim-results">
+
+                    <div id="results-placeholder" class="results-state visible">
+                        <h3>Proyección de Crecimiento</h3>
+                        <p class="placeholder-text">Aquí verás el potencial de tu inversión a lo largo del tiempo.</p>
+
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon-circle">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-gray">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                    <circle cx="16" cy="8" r="5" stroke="currentColor" fill="none" stroke-width="1.5"
+                                        style="opacity: 0.5;"></circle>
+                                    <line x1="18" y1="10" x2="15" y2="7" stroke="currentColor" stroke-width="1.5">
+                                    </line>
+                                </svg>
+                            </div>
+                            <p>
+                                Ingresa los datos de tu inversión para calcular la proyección de crecimiento de tu
+                                dinero.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="results-content" class="results-state hidden">
+                        <h3>Proyección de Crecimiento</h3>
+
+                        <div class="result-card">
+                            <span class="result-label">Valor Total Proyectado</span>
+                            <span class="result-value-green" id="result-total-value">$0.00</span>
+                        </div>
+
+                        <div class="result-card">
+                            <span class="result-label">Intereses Ganados</span>
+                            <span class="result-value-dark" id="result-interest-earned">$0.00</span>
+                        </div>
+
+                        <a href="simulators-landing.html" class="action-btn success-btn">
+                            Regresar a simuladores
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/layout-loader.js"></script>
+    <script src="../../js/simulator-4.js"></script>
+</body>
+
+</html>

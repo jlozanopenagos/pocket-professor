@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meta de Ahorro - PocketProfessor</title>
+
+    <link rel="stylesheet" href="../../css/layouts/header.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/layouts/footer.css" />
+    <link rel="stylesheet" href="../../css/sections/simulator-shared.css" />
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main class="sim-main">
+        <div class="sim-container">
+
+            <div class="sim-header">
+                <h1>Meta de Ahorro para Viajes/Hobbies</h1>
+                <p>
+                    Ingresa el costo de tu próximo viaje o ese hobby que tanto
+                    deseas y averigua el plan de ahorro exacto para hacerlo
+                    realidad.
+                </p>
+            </div>
+
+            <div class="sim-grid">
+                <div class="sim-controls">
+                    <div class="controls-card">
+
+                        <div class="control-group">
+                            <label for="total-cost">Costo Total de la Meta (Viaje/Hobby)</label>
+                            <div class="input-wrapper">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" id="total-cost" placeholder="3000" min="0" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="deadline-date">Fecha Límite para Alcanzar la Meta</label>
+                            <div class="input-wrapper date-wrapper">
+                                <input type="date" id="deadline-date" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="initial-savings">Cantidad de Ahorro Inicial (Opcional)</label>
+                            <div class="input-wrapper">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" id="initial-savings" placeholder="500" min="0" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button id="calculate-btn" class="action-btn primary-btn">
+                        Calcular Plan
+                        <span class="icon-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="sim-results">
+
+                    <div id="results-placeholder" class="results-state visible">
+                        <h3>Tu Plan de Ahorro</h3>
+                        <p class="placeholder-text">Completa los campos para calcular tu plan de ahorro personalizado.
+                        </p>
+
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon-circle blue-circle">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-blue">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                    <path d="M7 7h10"></path>
+                                    <path d="M7 11h3"></path>
+                                    <path d="M14 11h3"></path>
+                                </svg>
+                            </div>
+                            <div class="placeholder-message">
+                                <strong>Resultados pendientes</strong>
+                                <p>Tus cálculos aparecerán aquí.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="results-content" class="results-state hidden">
+                        <h3>Tu Plan de Ahorro</h3>
+                        <p class="disclaimer">
+                            Basado en tus datos, este es el plan para alcanzar tu meta.
+                        </p>
+
+                        <div class="result-card result-highlight-bg">
+                            <span class="result-label">Ahorro Mensual Necesario</span>
+                            <span class="result-value-large" id="result-monthly-savings">$0.00</span>
+                        </div>
+
+                        <div class="result-card result-light-bg">
+                            <div class="progress-header">
+                                <span class="result-label">Progreso Actual de la Meta</span>
+                                <span class="progress-percentage" id="progress-text">0%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-bar" id="progress-bar"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-card result-light-bg flex-row">
+                            <div class="time-info">
+                                <span class="result-label">Tiempo Restante</span>
+                                <span class="result-value-medium" id="result-time-remaining">0 Meses</span>
+                            </div>
+                            <div class="hourglass-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-4V2h-4v2L4 8v12z"></path>
+                                    <path d="M4 8h16"></path>
+                                    <path d="M4 16h16"></path>
+                                    <path d="M10 2h4"></path>
+                                    <path d="M12 12v.01"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <a href="simulators-landing.html" class="action-btn success-btn">
+                            Regresar a simuladores
+                            <span class="icon-arrow">←</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/layout-loader.js"></script>
+    <script src="../../js/simulator-3.js"></script>
+</body>
+
+</html>

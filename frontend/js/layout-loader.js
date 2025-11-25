@@ -2,7 +2,7 @@
 const LAYOUTS = {
   "header-container": "/pocket-professor/frontend/html/layouts/header.html",
   "hero-main": "/pocket-professor/frontend/html/sections/hero.html",
-  "simuladores-container": "/pocket-professor/frontend/html/sections/simuladores.html",
+  "simuladores-container": "/pocket-professor/frontend/html/sections/simulators.html",
   "footer-container": "/pocket-professor/frontend/html/layouts/footer.html"
 };
 
