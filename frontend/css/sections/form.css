@@ -1,32 +1,249 @@
-.input-floating {
+body {
+  background-color: var(--color-bg);
+  background: linear-gradient(to right, var(--color-bg), var(--color-dark));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: var(--color-bg);
+  border-radius: 1.6rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   position: relative;
-  margin: 40px 0;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 520px;
 }
 
-.input-floating input {
+.container h1 {
+  letter-spacing: 3px;
+}
+
+.container p {
+  font-size: 1.2rem;
+  letter-spacing: 0.3px;
+  margin: 1.25rem 0;
+}
+
+.container span {
+  font-size: 1rem;
+  padding: 8px 0;
+}
+
+.container a {
+  color: var(--color-dark);
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 1.1rem 0 1rem;
+  font-weight: 600;
+}
+
+.container button {
+  background-color: var(--color-primary);
+  padding: 0.7rem 3rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  color: var(--color-bg);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  cursor: pointer;
+  margin: 0.6rem 0;
+}
+
+.container button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-3px);
+}
+
+.container button.hidden {
+  background-color: transparent;
+  border-color: var(--color-bg);
+}
+
+.container button.hidden:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2.5rem;
+  height: 100%;
+  background: var(--color-bg);
+}
+
+.input-group {
   width: 100%;
-  padding: 20px 16px 8px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
+  margin: 0 1.25rem;
+  position: relative;
 }
 
-.input-floating label {
+.input-group label {
   position: absolute;
-  top: 20px;
-  left: 16px;
-  color: #999;
-  transition: 0.2s ease all;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 15px;
+  font-size: 1rem;
   pointer-events: none;
+  color: var(--color-accent);
+  padding: 0 6px;
+  transition: 0.3s;
+  background: transparent;
 }
 
-/* Cuando el input tiene foco o está lleno → label sube */
-.input-floating input:focus ~ label,
-.input-floating input:valid ~ label {
-  top: -10px;
-  font-size: 12px;
-  color: #9d50bb;
-  background: white;
-  padding: 0 6px;
+.input-group input {
+  background-color: transparent;
+  border: 1.2px solid var(--color-accent);
+  margin: 8px 0;
+  padding: 1rem 1.2rem;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 1rem;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group input:invalid:not(:placeholder-shown) ~ label {
+  top: 8px;
+  background: var(--color-bg);
+  border-radius: 1rem;
+  /* font-size: 1rem; */
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.active .sign-in {
+  transform: translateX(100%);
+}
+
+.sign-up {
+  left: 0;
+  width: 50%;
+  z-index: 1;
+  opacity: 0;
+}
+
+.container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons {
+  margin: 10px 0;
+}
+
+.social-icons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  margin: 0 5px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 20%;
+  transition: all 0.2s ease-in-out;
+}
+.social-icons a:hover {
+  background-color: aliceblue;
+  transform: translateY(-10%);
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  z-index: 1000;
+  border-radius: 150px 0 0 100px;
+}
+
+.container.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  background-color: var(--color-primary-hover);
+  height: 100%;
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-hover));
+  color: var(--color-bg);
+  position: relative;
+  left: -100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 2rem;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.active .toggle-right {
+  transform: translateX(200%);
 }

@@ -17,7 +17,13 @@ import { userRouter } from "./routes/user.routes.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({})); // Esto lo cambiamos a solo la ruta del frontend en producción
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
