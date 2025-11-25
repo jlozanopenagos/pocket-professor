@@ -3,9 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/sections/form.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <title>Registrate</title>
   </head>
   <body>
-    <div>Formulario registro</div>
+    <div class="container" id="container">
+      <div class="form-container sign-up">
+        <form id="form-signup">
+          <h1>Registrate</h1>
+          <div class="social-icons">
+            <button onclick="" class="icon google-login"><i class="fa-brands fa-google"></i></button>
+            <button onclick="" class="icon facebook-login"><i class="fa-brands fa-facebook"></i></button>
+          </div>
+          <span> O puedes registrarte manualmente</span>
+          <div class="input-group">
+            <input type="text" placeholder=" " name="fullName" autocomplete="off" required />
+            <label>Nombre</label>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder=" " name="email" autocomplete="off" required />
+            <label>Correo</label>
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder=" " name="password" autocomplete="off" required />
+            <label>Contraseña</label>
+          </div>
+          <button>Registrarse</button>
+        </form>
+      </div>
+
+      <div class="form-container sign-in">
+        <form id="form-signin">
+          <h1>Inicia Sesión</h1>
+          <div class="social-icons">
+            <button onclick="" class="icon google-login"><i class="fa-brands fa-google"></i></button>
+            <button onclick="" class="icon facebook-login"><i class="fa-brands fa-facebook"></i></button>
+          </div>
+          <span> O puedes ingresar manualmente</span>
+          <div class="input-group">
+            <input type="email" placeholder=" " name="email" autocomplete="off" required />
+            <label>Correo</label>
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder=" " name="password" autocomplete="off" required />
+            <label>Contraseña</label>
+          </div>
+          <a href="#">Olvidaste Tu Constraseña?</a>
+          <button>Ingresar</button>
+        </form>
+      </div>
+
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Bienvenido Nuevamente!</h1>
+            <p>
+              Ingresa tus datos personales para que tengas acceso a todas las caracteristicas y simuladores de la web
+            </p>
+            <button class="hidden" id="login">Ingresar</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Holaa!</h1>
+            <p>
+              Registra con tus datos personales para que tengas acceso a todas las caracteristicas y simuladores de la
+              web
+            </p>
+            <button class="hidden" id="register">Registrarse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../../js/forms/sign.js"></script>
+    <script type="module" src="../../js/forms/OAuth.js"></script>
+    <script type="module" src="../../js/forms/supabaseClient.js"></script>
   </body>
 </html>
