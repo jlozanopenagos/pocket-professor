@@ -1,205 +1,80 @@
-/* === Layout del Simulador 3 === */
-.sim-main {
-    padding: 3rem 1rem;
-    background-color: #f8fafc;
-    min-height: 80vh;
-}
+/* ===================================================================
+   SIMULATOR 3: SAVINGS GOAL
+   Unique styles specific to the savings goal calculator
+   Base styles are in simulator-base.css
+   =================================================================== */
 
-.sim-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.sim-header {
-    margin-bottom: 3rem;
-}
-
-.sim-header h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-dark);
-    margin-bottom: 1rem;
-}
-
-.sim-header p {
-    font-family: var(--font-body);
-    color: var(--color-text-muted);
-    max-width: 600px;
-    font-size: 1.1rem;
-}
-
-.sim-grid {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-}
-
-/* === Columna Izquierda: Controles === */
-.sim-controls {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.controls-card {
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 2rem;
-    box-shadow: var(--shadow-card);
-}
-
-.control-group {
-    margin-bottom: 2rem;
-}
-
-.control-group label {
-    display: block;
-    font-weight: 600;
-    color: var(--color-dark);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Inputs estilo caja */
-.input-wrapper {
-    display: flex;
-    align-items: center;
-    border: 1px solid #cbd5e1;
-    border-radius: var(--radius-sm);
-    padding: 0.8rem 1rem;
-    background-color: white;
-    transition: border-color 0.2s;
-}
-
-.input-wrapper:focus-within {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
-}
-
-.currency-symbol {
-    color: var(--color-text-muted);
-    margin-right: 0.5rem;
-    font-weight: 500;
-}
-
-.input-wrapper input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--color-dark);
-    font-family: var(--font-body);
-    background: transparent;
-}
-
-/* Date input styling tweaks */
+/* === DATE INPUT (unique to simulator 3) === */
 input[type="date"] {
     color: var(--color-text);
     font-family: var(--font-body);
     width: 100%;
 }
 
-/* Botones */
-.action-btn {
+/* === PROGRESS BAR (unique to simulator 3) === */
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-percentage {
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+.progress-track {
     width: 100%;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
+    height: 10px;
+    background-color: var(--color-slider-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--color-success);
+    width: 0%;
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+/* === FLEX ROW LAYOUT (unique to simulator 3) === */
+.result-card.flex-row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    /* Para el link */
-    transition: var(--transition);
 }
 
-.primary-btn {
-    background-color: var(--color-primary);
-    color: white;
-}
-
-.primary-btn:hover {
-    background-color: var(--color-primary-hover);
-    box-shadow: var(--shadow-button);
-}
-
-.success-btn {
-    background-color: #10b981;
-    /* Verde */
-    color: white;
-    margin-top: 1rem;
-}
-
-.success-btn:hover {
-    background-color: #059669;
-}
-
-/* === Columna Derecha: Resultados === */
-.sim-results {
+.time-info {
     flex: 1;
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 2rem;
-    min-height: 450px;
-    box-shadow: var(--shadow-card);
 }
 
-/* Placeholder State */
-.results-state.hidden {
-    display: none;
+.hourglass-icon svg {
+    color: var(--color-gray-medium);
 }
 
-.results-state.visible {
-    display: block;
-    animation: fadeIn 0.5s ease;
+/* === RESULT CARD VARIANTS === */
+.result-card.result-highlight-bg {
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-slider-bg);
 }
 
-#results-placeholder h3 {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    color: var(--color-dark);
-    font-weight: 700;
+.result-card.result-light-bg {
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-slider-bg);
 }
 
-.placeholder-text {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin-bottom: 4rem;
-}
-
-.placeholder-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.placeholder-icon-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.blue-circle {
-    background-color: #eff6ff;
+/* === PLACEHOLDER VARIANTS === */
+.placeholder-icon-circle.blue-circle {
+    background-color: var(--color-blue-light);
     color: var(--color-primary);
 }
 
 .placeholder-message strong {
     display: block;
     color: var(--color-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
 }
 
 .placeholder-message p {
@@ -207,117 +82,7 @@ input[type="date"] {
     font-size: 0.9rem;
 }
 
-/* Results Content */
-#results-content h3 {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    color: var(--color-dark);
-    margin-bottom: 0.5rem;
-}
-
-.disclaimer {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
-}
-
-/* Result Cards */
-.result-card {
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.result-highlight-bg {
-    background-color: #f8fafc;
-    /* Gris muy muy claro o blanco humo */
-    border: 1px solid #e2e8f0;
-}
-
-.result-light-bg {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-}
-
-.result-label {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.result-value-large {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    font-weight: 700;
-}
-
-.result-value-medium {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-dark);
-    font-weight: 700;
-}
-
-/* Progress Bar Card */
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.progress-percentage {
-    color: #10b981;
-    /* Verde */
-    font-weight: 700;
-}
-
-.progress-track {
-    width: 100%;
-    height: 10px;
-    background-color: #e2e8f0;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: #10b981;
-    /* Verde */
-    width: 0%;
-    /* JS update */
-    border-radius: 5px;
-    transition: width 1s ease;
-}
-
-/* Flex Row Card (Time) */
-.flex-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hourglass-icon svg {
-    color: #94a3b8;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .sim-grid {
-        flex-direction: column;
-    }
+/* === ICON STYLING === */
+.icon-arrow {
+    font-size: 1.2rem;
 }

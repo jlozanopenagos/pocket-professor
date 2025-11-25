@@ -1,239 +1,21 @@
-/* === Layout del Simulador 4 === */
-.sim-main {
-    padding: 3rem 1rem;
-    background-color: #f8fafc;
-    min-height: 80vh;
-}
+/* ===================================================================
+   SIMULATOR 4: COMPOUND INTEREST
+   Unique styles specific to the compound interest calculator
+   Base styles are in simulator-base.css
+   =================================================================== */
 
-.sim-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.sim-header {
-    margin-bottom: 3rem;
-}
-
-.sim-header h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-dark);
-    margin-bottom: 1rem;
-}
-
-.sim-header p {
-    font-family: var(--font-body);
-    color: var(--color-text-muted);
-    max-width: 600px;
-    font-size: 1.1rem;
-}
-
-.sim-grid {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-}
-
-/* === Columna Izquierda: Controles === */
-.sim-controls {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.controls-card {
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 2rem;
-    box-shadow: var(--shadow-card);
-}
-
-.control-group {
-    margin-bottom: 1.5rem;
-}
-
-.control-group:last-child {
-    margin-bottom: 0;
-}
-
-.control-group label {
-    display: block;
-    font-weight: 600;
-    color: var(--color-dark);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Inputs estilo caja */
-.input-wrapper {
-    display: flex;
-    align-items: center;
-    border: 1px solid #cbd5e1;
-    border-radius: var(--radius-sm);
-    padding: 0.8rem 1rem;
-    background-color: white;
-    transition: border-color 0.2s;
-}
-
-.input-wrapper:focus-within {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
-}
-
-.prefix,
-.suffix {
-    color: var(--color-text-muted);
-    font-weight: 500;
-}
-
-.prefix {
-    margin-right: 0.5rem;
-}
-
-.suffix {
-    margin-left: 0.5rem;
-}
-
-.input-wrapper input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--color-dark);
-    font-family: var(--font-body);
-    background: transparent;
-}
-
-/* Botones */
-.action-btn {
-    width: 100%;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.primary-btn {
-    background-color: var(--color-primary);
-    color: white;
-}
-
-.primary-btn:hover {
-    background-color: var(--color-primary-hover);
-    box-shadow: var(--shadow-button);
-}
-
-.success-btn {
-    background-color: #10b981;
-    /* Verde Esmeralda */
-    color: white;
-    margin-top: 2rem;
-}
-
-.success-btn:hover {
-    background-color: #059669;
-}
-
-/* === Columna Derecha: Resultados === */
+/* === TALLER RESULTS CONTAINER (unique to simulator 4) === */
 .sim-results {
-    flex: 1;
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 2rem;
     min-height: 550px;
-    /* Un poco más alto para este simulador */
-    box-shadow: var(--shadow-card);
+    /* Override base 450px */
 }
 
-/* Placeholder */
-.results-state.hidden {
-    display: none;
-}
-
-.results-state.visible {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-#results-placeholder h3 {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    color: var(--color-dark);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.placeholder-text {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin-bottom: 4rem;
-}
-
-.placeholder-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    color: var(--color-text-muted);
-    padding: 0 1rem;
-}
-
-.placeholder-icon-circle {
-    width: 80px;
-    height: 80px;
-    background-color: #f1f5f9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon-gray {
-    color: #64748b;
-}
-
-/* Results Content */
-#results-content h3 {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    color: var(--color-dark);
-    margin-bottom: 1.5rem;
-}
-
-.result-card {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.result-label {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
+/* === RESULT VALUE COLOR VARIANTS === */
 .result-value-green {
     display: block;
     font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: #10b981;
-    /* Verde */
+    font-size: var(--font-size-2xl);
+    color: var(--color-success);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -241,27 +23,18 @@
 .result-value-dark {
     display: block;
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: var(--font-size-2xl);
     color: var(--color-dark);
-    /* Negro/Azul oscuro */
     font-weight: 700;
     line-height: 1.2;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* === PLACEHOLDER ICON VARIANT === */
+.icon-gray {
+    color: var(--color-gray-dark);
 }
 
-@media (max-width: 768px) {
-    .sim-grid {
-        flex-direction: column;
-    }
+/* === ICON STYLING === */
+.icon-graph {
+    font-size: 1.2rem;
 }
