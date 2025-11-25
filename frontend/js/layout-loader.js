@@ -33,9 +33,6 @@ async function loadHTML(path) {
 async function renderLayout(containerId, filePath) {
   const container = document.getElementById(containerId);
   if (!container) {
-    console.warn(
-      `[LayoutLoader] Contenedor #${containerId} no encontrado en index.html`
-    );
     return;
   }
 
