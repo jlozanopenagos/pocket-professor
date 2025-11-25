@@ -1,0 +1,108 @@
+/* ===================================================================
+   SIMULATOR 2: EMERGENCY FUND
+   Unique styles specific to the emergency fund calculator
+   Base styles are in simulator-base.css
+   =================================================================== */
+
+/* === SLIDER LABELS (unique to simulator 2) === */
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+/* === HIGHLIGHT CARD (unique to simulator 2) === */
+.result-highlight-card {
+    background-color: var(--color-blue-light);
+    border-radius: var(--radius-md);
+    padding: 2.5rem var(--spacing-sm);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highlight-label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.highlight-value {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    color: var(--color-dark);
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+}
+
+.highlight-detail {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+/* === TIME SECTION (unique to simulator 2) === */
+.time-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.time-section h4 {
+    font-size: var(--font-size-base);
+    color: var(--color-dark);
+    margin-bottom: 0.8rem;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-xs);
+}
+
+.time-months {
+    color: var(--color-success);
+    font-weight: 700;
+    font-size: var(--font-size-md);
+}
+
+.time-years {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.time-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-slider-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+
+.time-fill {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-success);
+    border-radius: 4px;
+}
+
+.time-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.time-description strong {
+    color: var(--color-dark);
+}
+
+/* === VALUE DISPLAY VARIANT === */
+.value-display.highlight-blue {
+    color: var(--color-primary);
+    font-weight: 700;
+}

@@ -1,10 +1,11 @@
-/* ========================================
-   SHARED SIMULATOR STYLES
-   ======================================== */
-/* === Main Layout === */
+/* ===================================================================
+   SIMULATOR BASE STYLES
+   =================================================================== */
+
+/* === MAIN LAYOUT === */
 .sim-main {
-    padding: 3rem 1rem;
-    background-color: #f8fafc;
+    padding: var(--spacing-xl) var(--spacing-sm);
+    background-color: var(--color-bg-light);
     min-height: 80vh;
 }
 
@@ -13,49 +14,50 @@
     margin: 0 auto;
 }
 
+/* === HEADER SECTION === */
 .sim-header {
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-xl);
 }
 
 .sim-header h1 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: var(--font-size-2xl);
     color: var(--color-dark);
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .sim-header p {
     font-family: var(--font-body);
     color: var(--color-text-muted);
     max-width: 600px;
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
 }
 
-/* === Grid Layout === */
+/* === TWO-COLUMN GRID === */
 .sim-grid {
     display: flex;
-    gap: 2rem;
+    gap: var(--spacing-lg);
     align-items: flex-start;
 }
 
-/* === Controls Column === */
+/* === LEFT COLUMN: CONTROLS === */
 .sim-controls {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--spacing-md);
 }
 
 .controls-card {
-    background: white;
+    background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    padding: 2rem;
+    padding: var(--spacing-lg);
     box-shadow: var(--shadow-card);
 }
 
 .control-group {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .control-group:last-child {
@@ -67,17 +69,31 @@
     font-weight: 600;
     color: var(--color-dark);
     font-size: 0.95rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
 }
 
-/* === Input Wrappers === */
+/* === LABEL ROW (for sliders with value display) === */
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.value-display {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+}
+
+/* === INPUT WRAPPERS === */
 .input-wrapper {
     display: flex;
     align-items: center;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--color-input-border);
     border-radius: var(--radius-sm);
-    padding: 0.8rem 1rem;
-    background-color: white;
+    padding: 0.8rem var(--spacing-sm);
+    background-color: var(--color-bg-card);
     transition: border-color 0.2s;
 }
 
@@ -86,40 +102,35 @@
     box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
 }
 
+.currency-symbol,
+.prefix {
+    color: var(--color-text-muted);
+    margin-right: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.suffix {
+    color: var(--color-text-muted);
+    margin-left: var(--spacing-xs);
+    font-weight: 500;
+}
+
 .input-wrapper input {
     border: none;
     outline: none;
     width: 100%;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     color: var(--color-dark);
     font-family: var(--font-body);
     background: transparent;
 }
 
-.currency-symbol,
-.prefix,
-.suffix {
-    color: var(--color-text-muted);
-    font-weight: 500;
-}
-
-.prefix,
-.currency-symbol {
-    margin-right: 0.5rem;
-}
-
-.suffix {
-    margin-left: 0.5rem;
-}
-
-/* === Range Sliders === */
+/* === RANGE SLIDERS === */
 input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
     width: 100%;
     height: 6px;
     border-radius: 5px;
-    background: #e2e8f0;
+    background: var(--color-slider-bg);
     outline: none;
     cursor: pointer;
 }
@@ -132,7 +143,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     background: var(--color-primary);
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid var(--color-bg-card);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.1s;
 }
@@ -147,71 +158,31 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     background: var(--color-primary);
     cursor: pointer;
-    border: 2px solid white;
+    border: 2px solid var(--color-bg-card);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s;
 }
 
-.label-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.8rem;
-}
-
-.value-display {
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-/* === Frequency Toggle (Simulator 1) === */
-.frequency-toggle {
-    display: flex;
-    gap: 1rem;
-}
-
-.freq-btn {
-    flex: 1;
-    padding: 0.8rem;
-    border: 1px solid var(--color-border);
-    background: #f1f5f9;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    transition: all 0.2s;
-}
-
-.freq-btn.active {
-    background-color: #eff6ff;
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-}
-
-.freq-btn:hover {
-    background-color: #e2e8f0;
-}
-
-/* === Buttons === */
+/* === BUTTONS === */
 .action-btn {
     width: 100%;
-    padding: 1rem;
+    padding: var(--spacing-sm);
     border-radius: var(--radius-md);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     cursor: pointer;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
     text-decoration: none;
     transition: var(--transition);
 }
 
 .primary-btn {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-bg-card);
 }
 
 .primary-btn:hover {
@@ -220,26 +191,26 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .success-btn {
-    background-color: #10b981;
-    color: white;
+    background-color: var(--color-success);
+    color: var(--color-bg-card);
 }
 
 .success-btn:hover {
-    background-color: #059669;
+    background-color: var(--color-success-hover);
 }
 
-/* === Results Column === */
+/* === RIGHT COLUMN: RESULTS === */
 .sim-results {
     flex: 1;
-    background: white;
+    background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    padding: 2rem;
+    padding: var(--spacing-lg);
     min-height: 450px;
     box-shadow: var(--shadow-card);
 }
 
-/* === Results States === */
+/* === RESULTS STATE MANAGEMENT === */
 .results-state {
     width: 100%;
     transition: opacity 0.3s ease;
@@ -256,7 +227,7 @@ input[type="range"]::-moz-range-thumb {
     animation: fadeIn 0.5s ease;
 }
 
-/* === Placeholder State === */
+/* === PLACEHOLDER STATE === */
 #results-placeholder {
     text-align: center;
     color: var(--color-text-muted);
@@ -264,72 +235,112 @@ input[type="range"]::-moz-range-thumb {
 
 #results-placeholder h3 {
     font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     color: var(--color-dark);
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
 }
 
 .placeholder-text {
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
-.placeholder-icon,
 .placeholder-content {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--spacing-md);
     color: var(--color-text-muted);
 }
 
 .placeholder-icon {
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
     opacity: 0.5;
 }
 
 .placeholder-icon-circle {
     width: 80px;
     height: 80px;
+    background-color: var(--color-gray-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f1f5f9;
 }
 
-/* === Results Content === */
+/* === RESULTS CONTENT === */
 #results-content h3 {
     font-family: var(--font-body);
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     color: var(--color-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
 }
 
 .disclaimer {
-    font-size: 0.85rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-md);
 }
 
+/* === RESULT CARDS === */
 .result-card {
-    padding: 1.5rem;
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-slider-bg);
     border-radius: var(--radius-md);
-    margin-bottom: 1rem;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .result-label {
     display: block;
-    font-size: 0.85rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-xs);
 }
 
-/* === Animations === */
+.result-value-large {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.result-value-medium {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+/* === COLOR VARIANTS === */
+.blue-card {
+    background-color: var(--color-blue-light);
+    color: var(--color-primary);
+}
+
+.green-card {
+    background-color: var(--color-green-light);
+    color: var(--color-green-dark);
+}
+
+.card-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+/* === ANIMATIONS === */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -342,8 +353,12 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
-/* === Responsive Design === */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
+    .sim-main {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
     .sim-grid {
         flex-direction: column;
     }
@@ -354,6 +369,10 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .sim-header h1 {
-        font-size: 2rem;
+        font-size: var(--font-size-xl);
+    }
+
+    .sim-header p {
+        font-size: var(--font-size-base);
     }
 }
