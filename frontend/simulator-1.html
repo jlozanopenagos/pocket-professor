@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador Ahorro Automático - PocketProfessor</title>
+
+    <link rel="stylesheet" href="css/layouts/header.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/layouts/footer.css" />
+
+    <link rel="stylesheet" href="css/sections/simulator-1.css" />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="sim-main">
+      <div class="sim-container">
+        
+        <div class="sim-header">
+          <h1>Ahorro Automático Programado</h1>
+          <p>
+            Descubre cuánto puedes acumular al automatizar una pequeña cantidad
+            semanal o mensual. ¡El piloto automático de tu futuro financiero!
+          </p>
+        </div>
+
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="controls-card">
+              <div class="control-group">
+                <div class="label-row">
+                  <label>Cantidad Semanal o Mensual:</label>
+                  <span class="value-display" id="amount-display">$100</span>
+                </div>
+                <input
+                  type="range"
+                  id="amount-slider"
+                  min="10"
+                  max="1000"
+                  step="10"
+                  value="100"
+                />
+              </div>
+
+              <div class="control-group">
+                <label>Frecuencia</label>
+                <div class="frequency-toggle">
+                  <button
+                    class="freq-btn active"
+                    data-freq="weekly"
+                    id="btn-weekly"
+                  >
+                    Semanal
+                  </button>
+                  <button
+                    class="freq-btn"
+                    data-freq="monthly"
+                    id="btn-monthly"
+                  >
+                    Mensual
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="label-row">
+                  <label>Período de Ahorro:</label>
+                  <span class="value-display" id="period-display">5 Años</span>
+                </div>
+                <input
+                  type="range"
+                  id="period-slider"
+                  min="1"
+                  max="30"
+                  step="1"
+                  value="5"
+                />
+              </div>
+            </div>
+
+            <button id="calculate-btn" class="action-btn primary-btn">
+              Calcular Ahorro
+              <span class="icon-calc">🧮</span>
+            </button>
+          </div>
+
+          <div class="sim-results">
+            
+            <div id="results-placeholder" class="results-state visible">
+              <div class="placeholder-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <h3>Visualiza tus Resultados</h3>
+              <p>
+                Ingresa tus datos para ver la visualización de tus resultados
+                aquí.
+              </p>
+            </div>
+
+            <div id="results-content" class="results-state hidden">
+              <h3>Resultados de tu Ahorro</h3>
+              <p class="disclaimer">
+                Basado en tus selecciones y una tasa de interés estimada del 3%
+                anual.
+              </p>
+
+              <div class="result-card blue-card">
+                <span class="card-label">Total Ahorrado</span>
+                <span class="card-value" id="result-total">$0.00</span>
+              </div>
+
+              <div class="result-card green-card">
+                <span class="card-label">Intereses Ganados</span>
+                <span class="card-value" id="result-interest">$0.00</span>
+              </div>
+
+              <div class="growth-chart">
+                <label>Crecimiento de tu ahorro</label>
+                <div class="progress-bar-container">
+                  <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="chart-legend">
+                  <span class="legend-capital" id="legend-capital">Capital: $0</span>
+                  <span class="legend-interest" id="legend-interest">+ $0</span>
+                </div>
+              </div>
+
+              <button class="action-btn success-btn">
+                Empezar a Ahorrar 
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"/></svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="js/layout-loader.js"></script>
+    <script src="js/simulators/simulator-1.js"></script>
+  </body>
+</html>
