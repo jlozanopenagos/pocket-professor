@@ -1,9 +1,9 @@
 // === CONFIGURACIÓN: Mapea contenedores → archivos HTML ===
 const LAYOUTS = {
-  "header-container": "html/layouts/header.html",
-  "hero-main": "html/sections/hero.html",
-  "simuladores-container": "html/sections/simuladores.html",
-  "footer-container": "html/layouts/footer.html"
+  "header-container": "/pocket-professor/frontend/html/layouts/header.html",
+  "hero-main": "/pocket-professor/frontend/html/sections/hero.html",
+  "simuladores-container": "/pocket-professor/frontend/html/sections/simulators.html",
+  "footer-container": "/pocket-professor/frontend/html/layouts/footer.html"
 };
 
 // === CACHÉ SIMPLE (evita recargar el mismo archivo) ===
@@ -33,9 +33,6 @@ async function loadHTML(path) {
 async function renderLayout(containerId, filePath) {
   const container = document.getElementById(containerId);
   if (!container) {
-    console.warn(
-      `[LayoutLoader] Contenedor #${containerId} no encontrado en index.html`
-    );
     return;
   }
 
@@ -65,7 +62,7 @@ async function renderLayout(containerId, filePath) {
  */
 async function initLayouts() {
   const tasks = Object.entries(LAYOUTS).map(
-    ([id, path]) => renderLayout(id, path).catch(() => {}) // Un error no rompe todo
+    ([id, path]) => renderLayout(id, path).catch(() => { }) // Un error no rompe todo
   );
 
   await Promise.all(tasks);

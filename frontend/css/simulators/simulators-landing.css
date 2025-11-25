@@ -1,30 +1,31 @@
-/* Estilos para el nuevo landing de simuladores */
+/* ===================================================================
+   SIMULATORS LANDING PAGE
+   =================================================================== */
 
 .simulators-landing-main {
-  padding: 4rem 0;
+  padding: var(--section-padding) 0;
   text-align: center;
 }
 
 .simulators-landing-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-sm);
 }
 
 .simulators-landing-title {
   font-family: var(--font-heading);
-  font-size: 3.5rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
   color: var(--color-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .simulators-landing-subtitle {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-size: var(--font-size-lg);
   color: var(--color-text-muted);
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto var(--section-padding) auto;
   line-height: 1.6;
 }
 
@@ -37,37 +38,35 @@
 .simulator-item {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: var(--spacing-md);
   text-align: left;
 }
 
 .simulator-icon {
   width: 50px;
   height: 50px;
-  min-width: 50px; /* Para asegurar que el icono no se encoja */
-  border-radius: 8px;
-  background-color: #e6f0ff; /* Un azul claro similar al de la imagen */
+  min-width: 50px;
+  border-radius: var(--radius-md);
+  background-color: #e6f0ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary); /* Color del icono */
-  font-size: 24px; /* Tamaño del icono SVG */
+  color: var(--color-primary);
+  font-size: 24px;
 }
 
 .simulator-item h3 {
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--color-dark);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .simulator-item p {
-  font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   color: var(--color-text);
   line-height: 1.5;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .simulator-link {
@@ -81,14 +80,14 @@
   color: var(--color-primary-hover);
 }
 
-/* Responsive */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .simulators-landing-title {
-    font-size: 2.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   .simulators-landing-subtitle {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   .simulator-item {
@@ -98,6 +97,6 @@
   }
 
   .simulator-icon {
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
   }
 }

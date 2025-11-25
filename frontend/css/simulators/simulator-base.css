@@ -1,0 +1,378 @@
+/* ===================================================================
+   SIMULATOR BASE STYLES
+   =================================================================== */
+
+/* === MAIN LAYOUT === */
+.sim-main {
+    padding: var(--spacing-xl) var(--spacing-sm);
+    background-color: var(--color-bg-light);
+    min-height: 80vh;
+}
+
+.sim-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* === HEADER SECTION === */
+.sim-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.sim-header h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.sim-header p {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    font-size: var(--font-size-md);
+}
+
+/* === TWO-COLUMN GRID === */
+.sim-grid {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+/* === LEFT COLUMN: CONTROLS === */
+.sim-controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.controls-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.control-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* === LABEL ROW (for sliders with value display) === */
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.value-display {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+}
+
+/* === INPUT WRAPPERS === */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-input-border);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem var(--spacing-sm);
+    background-color: var(--color-bg-card);
+    transition: border-color 0.2s;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.currency-symbol,
+.prefix {
+    color: var(--color-text-muted);
+    margin-right: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.suffix {
+    color: var(--color-text-muted);
+    margin-left: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.input-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: var(--font-size-base);
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    background: transparent;
+}
+
+/* === RANGE SLIDERS === */
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: var(--color-slider-bg);
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+    border: 2px solid var(--color-bg-card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+    border: 2px solid var(--color-bg-card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s;
+}
+
+/* === BUTTONS === */
+.action-btn {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xs);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background-color: var(--color-primary);
+    color: var(--color-bg-card);
+}
+
+.primary-btn:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-button);
+}
+
+.success-btn {
+    background-color: var(--color-success);
+    color: var(--color-bg-card);
+}
+
+.success-btn:hover {
+    background-color: var(--color-success-hover);
+}
+
+/* === RIGHT COLUMN: RESULTS === */
+.sim-results {
+    flex: 1;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    min-height: 450px;
+    box-shadow: var(--shadow-card);
+}
+
+/* === RESULTS STATE MANAGEMENT === */
+.results-state {
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.results-state.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.results-state.visible {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+/* === PLACEHOLDER STATE === */
+#results-placeholder {
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+#results-placeholder h3 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    color: var(--color-dark);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.placeholder-text {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 4rem;
+}
+
+.placeholder-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    color: var(--color-text-muted);
+}
+
+.placeholder-icon {
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.5;
+}
+
+.placeholder-icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-gray-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === RESULTS CONTENT === */
+#results-content h3 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.disclaimer {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+/* === RESULT CARDS === */
+.result-card {
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-slider-bg);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.result-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.result-value-large {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.result-value-medium {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+/* === COLOR VARIANTS === */
+.blue-card {
+    background-color: var(--color-blue-light);
+    color: var(--color-primary);
+}
+
+.green-card {
+    background-color: var(--color-green-light);
+    color: var(--color-green-dark);
+}
+
+.card-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .sim-main {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .sim-grid {
+        flex-direction: column;
+    }
+
+    .sim-results {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .sim-header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .sim-header p {
+        font-size: var(--font-size-base);
+    }
+}

@@ -15,37 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultYears = document.getElementById('result-years');
     const timeDescription = document.getElementById('time-description');
 
-    // === Formateador de Moneda ===
-    const currencyFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 0, 
-        maximumFractionDigits: 0
-    });
-
     // === Event Listeners ===
 
     // Slider de Meses: Actualiza el texto al moverlo
     monthsSlider.addEventListener('input', (e) => {
         monthsDisplay.textContent = `${e.target.value} Meses`;
-        updateSliderBackground(e.target);
+        SimulatorUtils.updateSliderBackground(e.target);
     });
 
     // Validar inputs numéricos (evitar negativos)
-    [expensesInput, savingsInput].forEach(input => {
-        input.addEventListener('change', (e) => {
-            if (e.target.value < 0) e.target.value = 0;
-        });
-    });
+    SimulatorUtils.preventNegativeInputs(expensesInput, savingsInput);
 
     calculateBtn.addEventListener('click', calculateEmergencyFund);
 
     // === Funciones ===
-
-    function updateSliderBackground(slider) {
-        const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-        slider.style.background = `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${value}%, #e2e8f0 ${value}%, #e2e8f0 100%)`;
-    }
 
     function calculateEmergencyFund() {
         // 1. Obtener valores
@@ -55,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 2. Cálculos principales
         const totalFundNeeded = monthlyExpenses * coverageMonths;
-        
+
         // Calcular tiempo para la meta
         // Si el ahorro es 0, el tiempo es infinito (manejamos ese caso)
         let monthsToGoal = 0;
@@ -63,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (monthlySavings > 0) {
             monthsToGoal = Math.ceil(totalFundNeeded / monthlySavings);
-            
+
             // Calcular texto de años
             const years = (monthsToGoal / 12).toFixed(1);
             if (monthsToGoal < 12) {
@@ -84,24 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayResults(total, expenses, months, savings, timeMonths, timeYears) {
         // Switch de vista
-        resultsPlaceholder.classList.remove('visible');
-        resultsPlaceholder.classList.add('hidden');
-        resultsContent.classList.remove('hidden');
-        resultsContent.classList.add('visible');
+        SimulatorUtils.showResults(resultsPlaceholder, resultsContent);
 
         // Actualizar textos
-        resultTotal.textContent = currencyFormatter.format(total);
-        resultCalculation.textContent = `${currencyFormatter.format(expenses)}/mes × ${months} meses`;
-        
+        resultTotal.textContent = SimulatorUtils.formatCurrency(total, 0);
+        resultCalculation.textContent = `${SimulatorUtils.formatCurrency(expenses, 0)}/mes × ${months} meses`;
+
         resultMonths.textContent = typeof timeMonths === 'number' ? `${timeMonths} Meses` : timeMonths;
         resultYears.textContent = timeYears;
 
-        timeDescription.innerHTML = `Ahorrando <strong>${currencyFormatter.format(savings)}</strong> mensualmente.`;
+        timeDescription.innerHTML = `Ahorrando <strong>${SimulatorUtils.formatCurrency(savings, 0)}</strong> mensualmente.`;
 
         // Cambiar texto del botón a "Recalcular"
-        calculateBtn.innerHTML = `Recalcular <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>`;
+        SimulatorUtils.updateButtonToRecalculate(calculateBtn, 'Recalcular');
     }
 
     // Inicializar color del slider
-    updateSliderBackground(monthsSlider);
+    SimulatorUtils.initializeSliders(monthsSlider);
 });

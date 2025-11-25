@@ -1,0 +1,40 @@
+/* ===================================================================
+   SIMULATOR 4: COMPOUND INTEREST
+   Unique styles specific to the compound interest calculator
+   Base styles are in simulator-base.css
+   =================================================================== */
+
+/* === TALLER RESULTS CONTAINER (unique to simulator 4) === */
+.sim-results {
+    min-height: 550px;
+    /* Override base 450px */
+}
+
+/* === RESULT VALUE COLOR VARIANTS === */
+.result-value-green {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-success);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.result-value-dark {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-dark);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* === PLACEHOLDER ICON VARIANT === */
+.icon-gray {
+    color: var(--color-gray-dark);
+}
+
+/* === ICON STYLING === */
+.icon-graph {
+    font-size: 1.2rem;
+}

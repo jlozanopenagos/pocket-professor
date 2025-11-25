@@ -1,0 +1,77 @@
+/* ===================================================================
+   SIMULATOR 1: AUTOMATIC SAVINGS
+   Unique styles specific to the automatic savings calculator
+   Base styles are in simulator-base.css
+   =================================================================== */
+
+/* === FREQUENCY TOGGLE (unique to simulator 1) === */
+.frequency-toggle {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.freq-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-gray-light);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+}
+
+.freq-btn.active {
+    background-color: var(--color-blue-light);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* === PROGRESS BAR (unique to simulator 1) === */
+.growth-chart {
+    margin: var(--spacing-lg) 0;
+}
+
+.growth-chart label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-dark);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: var(--color-slider-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-primary);
+    width: 0%;
+    transition: width 1s ease;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-xs);
+}
+
+.legend-capital {
+    color: var(--color-text-muted);
+}
+
+.legend-interest {
+    color: var(--color-green-dark);
+    font-weight: 600;
+}
+
+/* === ICON STYLING === */
+.icon-calc {
+    font-size: 1.2rem;
+}
