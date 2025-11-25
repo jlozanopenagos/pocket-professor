@@ -13,14 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultTotalValue = document.getElementById('result-total-value');
     const resultInterestEarned = document.getElementById('result-interest-earned');
 
-    // === Formateador ===
-    const currencyFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    });
-
     // === Listener ===
     calculateBtn.addEventListener('click', calculateCompoundInterest);
 
@@ -71,14 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayResults(total, interest) {
         // Switch vista
-        resultsPlaceholder.classList.remove('visible');
-        resultsPlaceholder.classList.add('hidden');
-        resultsContent.classList.remove('hidden');
-        resultsContent.classList.add('visible');
+        SimulatorUtils.showResults(resultsPlaceholder, resultsContent);
 
         // Textos
-        resultTotalValue.textContent = currencyFormatter.format(total);
-        resultInterestEarned.textContent = currencyFormatter.format(interest);
+        resultTotalValue.textContent = SimulatorUtils.formatCurrency(total);
+        resultInterestEarned.textContent = SimulatorUtils.formatCurrency(interest);
 
         // Botón Izquierdo cambia a "Ajustar Simulación" (Azul estándar)
         calculateBtn.textContent = "Ajustar Simulación";

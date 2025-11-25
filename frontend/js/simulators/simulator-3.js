@@ -14,13 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressText = document.getElementById('progress-text');
     const resultTimeRemaining = document.getElementById('result-time-remaining');
 
-    // === Formateador ===
-    const currencyFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-    });
-
     // === Listener ===
     calculateBtn.addEventListener('click', calculatePlan);
 
@@ -75,13 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayResults(monthly, progress, months) {
         // Switch vista
-        resultsPlaceholder.classList.remove('visible');
-        resultsPlaceholder.classList.add('hidden');
-        resultsContent.classList.remove('hidden');
-        resultsContent.classList.add('visible');
+        SimulatorUtils.showResults(resultsPlaceholder, resultsContent);
 
         // Textos
-        resultMonthlySavings.textContent = currencyFormatter.format(monthly);
+        resultMonthlySavings.textContent = SimulatorUtils.formatCurrency(monthly);
         resultTimeRemaining.textContent = `${months} Meses`;
         progressText.textContent = `${Math.round(progress)}%`;
 
@@ -89,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateBtn.innerHTML = `Ajustar Simulación <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:5px"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>`;
 
         // Barra de progreso (con delay para animación)
-        setTimeout(() => {
-            progressBar.style.width = `${progress}%`;
-        }, 100);
+        SimulatorUtils.animateProgressBar(progressBar, progress, 100);
     }
 });

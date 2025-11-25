@@ -21,25 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let frequency = 'weekly';
     const interestRate = 0.03; // Tasa 3% anual
 
-    // === Formateador ===
-    const currencyFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-    });
-
     // === LISTENERS ===
 
     // Slider Cantidad
     amountSlider.addEventListener('input', (e) => {
         amountDisplay.textContent = `$${e.target.value}`;
-        updateSliderBackground(e.target);
+        SimulatorUtils.updateSliderBackground(e.target);
     });
 
     // Slider Periodo
     periodSlider.addEventListener('input', (e) => {
         periodDisplay.textContent = `${e.target.value} Años`;
-        updateSliderBackground(e.target);
+        SimulatorUtils.updateSliderBackground(e.target);
     });
 
     // Botones de Frecuencia
@@ -60,12 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btnMonthly.classList.add('active');
             btnWeekly.classList.remove('active');
         }
-    }
-
-    function updateSliderBackground(slider) {
-        // Pinta el fondo del slider dinámicamente
-        const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-        slider.style.background = `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${value}%, #e2e8f0 ${value}%, #e2e8f0 100%)`;
     }
 
     function calculateSavings() {
@@ -96,32 +83,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayResults(total, interest, invested) {
         // 1. Switch de vistas
-        resultsPlaceholder.classList.remove('visible');
-        resultsPlaceholder.classList.add('hidden');
-
-        resultsContent.classList.remove('hidden');
-        resultsContent.classList.add('visible');
+        SimulatorUtils.showResults(resultsPlaceholder, resultsContent);
 
         // 2. Insertar valores
-        resultTotal.textContent = currencyFormatter.format(total);
-        resultInterest.textContent = `+ ${currencyFormatter.format(interest)}`;
+        resultTotal.textContent = SimulatorUtils.formatCurrency(total);
+        resultInterest.textContent = `+ ${SimulatorUtils.formatCurrency(interest)}`;
 
-        legendCapital.textContent = `Capital: ${currencyFormatter.format(invested)}`;
-        legendInterest.textContent = `+ ${currencyFormatter.format(interest)}`;
+        legendCapital.textContent = `Capital: ${SimulatorUtils.formatCurrency(invested)}`;
+        legendInterest.textContent = `+ ${SimulatorUtils.formatCurrency(interest)}`;
 
         // 3. Actualizar botón
-        calculateBtn.innerHTML = `Ajustar Simulación <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>`;
+        SimulatorUtils.updateButtonToRecalculate(calculateBtn);
 
         // 4. Animar Barra
         const capitalPercentage = (invested / total) * 100;
-
-        // Pequeño delay para permitir renderizado
-        setTimeout(() => {
-            progressFill.style.width = `${capitalPercentage}%`;
-        }, 50);
+        SimulatorUtils.animateProgressBar(progressFill, capitalPercentage);
     }
 
     // Inicializar fondos de sliders
-    updateSliderBackground(amountSlider);
-    updateSliderBackground(periodSlider);
+    SimulatorUtils.initializeSliders(amountSlider, periodSlider);
 });
