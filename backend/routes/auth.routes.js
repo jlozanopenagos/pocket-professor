@@ -58,6 +58,7 @@ authRouter.post("/sign-up", async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production", // esto puede dar error por el dotenv
         sameSite: "lax",
+        path: "/",
         maxAge: session.expires_in * 1000,
       });
 
@@ -65,6 +66,7 @@ authRouter.post("/sign-up", async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
+        path: "/",
         maxAge: 60 * 60 * 24 * 60 * 1000, // es en milisegundos entonces pasamos 6o dias a miliseconds
       });
     }
@@ -116,6 +118,7 @@ authRouter.post("/sign-in", async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
+        path: "/",
         maxAge: session.expires_in * 1000,
       });
 
@@ -123,6 +126,7 @@ authRouter.post("/sign-in", async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
+        path: "/",
         maxAge: 60 * 60 * 24 * 60 * 1000,
       });
     }
@@ -138,5 +142,36 @@ authRouter.post("/sign-in", async (req, res) => {
   } catch (error) {
     console.error("Error iniciando sesión", error);
     res.status(500).json({ error: error.message });
+  }
+});
+
+authRouter.post("/set-session", async (req, res) => {
+  try {
+    const { access_token, refresh_token, expires_in } = req.body;
+
+    if (!access_token || !refresh_token) {
+      return res.status(400).json({ error: "Tokens requeridos" });
+    }
+
+    res.cookie("sb-access-token", access_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: (expires_in || 3600) * 1000,
+    });
+
+    res.cookie("sb-refresh-token", refresh_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 60 * 1000,
+    });
+
+    res.status(200).json({ message: "Sesión sincronizada" });
+  } catch (error) {
+    console.error("Error setting session", error);
+    res.status(500).json({ error: "Error interno" });
   }
 });
