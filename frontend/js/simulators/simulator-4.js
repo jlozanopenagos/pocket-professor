@@ -1,5 +1,5 @@
 import { SimulatorUtils } from "./simulator-utils.js";
-import { saveSimulatorData } from "../simpleState.js";
+import { saveCompoundInterest } from "../simpleState.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // === DOM Elements ===
@@ -61,10 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalInterest = futureValue - totalInvested;
 
     // 4. Mostrar Resultados
-    displayResults(futureValue, totalInterest);
+    displayResults(futureValue, totalInterest, P, r, t);
   }
 
-  async function displayResults(total, interest) {
+  async function displayResults(total, interest, principal, rate, timePeriod) {
     // Switch vista
     SimulatorUtils.showResults(resultsPlaceholder, resultsContent);
 
@@ -75,9 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Botón Izquierdo cambia a "Ajustar Simulación" (Azul estándar)
     calculateBtn.textContent = "Ajustar Simulación";
 
-    await saveSimulatorData({
-      total_saving: total,
-      interest_saving: interest,
-    });
+    // Guardar a Supabase
+    try {
+      await saveCompoundInterest({
+        principal: principal,
+        rate: rate,
+        time_period: timePeriod,
+        frequency: 12, // Monthly compounding
+        total_projected: total,
+        interest_earned: interest,
+      });
+    } catch (error) {
+      console.error("Failed to save compound interest:", error);
+    }
   }
 });
