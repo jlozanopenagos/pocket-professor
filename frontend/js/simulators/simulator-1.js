@@ -1,3 +1,4 @@
+import { SimulatorUtils } from "./simulator-utils.js";
 import { saveSimulatorData } from "../simpleState.js";
 
 document.addEventListener("DOMContentLoaded", () => {
