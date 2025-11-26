@@ -1,5 +1,5 @@
 import { SimulatorUtils } from "./simulator-utils.js";
-import { saveSimulatorData } from "../simpleState.js";
+import { saveEmergencyFund } from "../simpleState.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // === DOM Elements ===
@@ -84,11 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cambiar texto del botón a "Recalcular"
     SimulatorUtils.updateButtonToRecalculate(calculateBtn, "Recalcular");
 
-    await saveSimulatorData({
-      emergency_fund_needed: total,
-      emergency_fund_savings: savings,
-      emergency_months_to_goal: typeof timeMonths === "number" ? timeMonths : null,
-    });
+    // Guardar a Supabase
+    try {
+      await saveEmergencyFund({
+        monthly_expense: expenses,
+        target_months: months,
+        total_e_fund: total,
+        estimated_time: typeof timeMonths === "number" ? timeMonths : null,
+      });
+    } catch (error) {
+      console.error("Failed to save emergency fund:", error);
+    }
   }
 
   // Inicializar color del slider

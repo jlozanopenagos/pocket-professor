@@ -1,5 +1,5 @@
 import { SimulatorUtils } from "./simulator-utils.js";
-import { saveSimulatorData } from "../simpleState.js";
+import { saveAutomaticSavings } from "../simpleState.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // === Elementos del DOM ===
@@ -102,11 +102,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const capitalPercentage = (invested / total) * 100;
     SimulatorUtils.animateProgressBar(progressFill, capitalPercentage);
 
-    // agregar datos a la base de supabase
-    await saveSimulatorData({
-      saving_total: total,
-      saving_interest: interest,
-    });
+    // 5. Guardar datos a Supabase
+    try {
+      await saveAutomaticSavings({
+        frequency: frequency,
+        amount_per_save: parseFloat(amountSlider.value),
+        total_saved: total,
+        interest_earned: interest,
+      });
+    } catch (error) {
+      console.error("Failed to save automatic savings:", error);
+      // Optionally show user-friendly error message
+    }
   }
 
   // Inicializar fondos de sliders
