@@ -276,6 +276,60 @@ export const saveCompoundInterest = async (data) => {
   }
 };
 
+/**
+ * Get all simulator data for the dashboard
+ */
+export const getDashboardData = async () => {
+  try {
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+
+    if (authError || !user) {
+      return null;
+    }
+
+    // Fetch data from all tables in parallel
+    const [autoSavings, emergencyFund, savingsGoal, compoundInterest] = await Promise.all([
+      supabase
+        .from("automatic_scheduled_savings")
+        .select("*")
+        .eq("user_id", user.id)
+        .is("deleted_at", null)
+        .maybeSingle(),
+      supabase
+        .from("emergency_fund")
+        .select("*")
+        .eq("user_id", user.id)
+        .is("deleted_at", null)
+        .maybeSingle(),
+      supabase
+        .from("savings_goal")
+        .select("*")
+        .eq("user_id", user.id)
+        .is("deleted_at", null)
+        .maybeSingle(),
+      supabase
+        .from("compound_interest")
+        .select("*")
+        .eq("user_id", user.id)
+        .is("deleted_at", null)
+        .maybeSingle(),
+    ]);
+
+    return {
+      autoSavings: autoSavings.data,
+      emergencyFund: emergencyFund.data,
+      savingsGoal: savingsGoal.data,
+      compoundInterest: compoundInterest.data,
+    };
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+    return null;
+  }
+};
+
 // Legacy functions - kept for backward compatibility
 export const saveSimulatorData = async (data) => {
   console.warn("saveSimulatorData is deprecated. Use specific save functions instead.");

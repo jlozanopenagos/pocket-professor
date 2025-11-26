@@ -162,3 +162,42 @@
     background: var(--color-border);
     border-radius: 4px;
 }
+
+/* === DASHBOARD STYLES === */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.dashboard-card {
+    background: var(--color-bg);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0.5rem 0;
+}
+
+.stat-sub {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.stat-sub span {
+    font-weight: 600;
+    color: var(--color-dark);
+}
