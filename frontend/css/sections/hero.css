@@ -23,8 +23,6 @@
   min-height: 450px;
   height: 50vh;
   padding: var(--section-padding) 5rem;
-  /* border-radius: var(--radius-md); */
-  /* margin: 1rem 0; */
 
   display: flex;
   justify-content: flex-start;
@@ -60,21 +58,30 @@
 
 /* Botón principal */
 .hero-btn {
+  display: inline-block;
   background-color: var(--color-primary);
   color: var(--color-bg);
   font-size: 1.1rem;
   font-weight: 600;
   padding: 1rem 2rem;
-  border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition);
+  text-decoration: none;
+  text-align: center;
 }
 
-.hero-btn:hover {
+.hero-btn:hover,
+.hero-btn:focus,
+.hero-btn:active {
   background-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-button);
+}
+
+.hero-btn:visited {
+  color: var(--color-bg);
+  text-decoration: none;
 }
 
 /* Imagen */

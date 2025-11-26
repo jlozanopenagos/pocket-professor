@@ -1,5 +1,5 @@
 import { SimulatorUtils } from "./simulator-utils.js";
-import { saveSimulatorData } from "../simpleState.js";
+import { saveSavingsGoal } from "../simpleState.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // === DOM Elements ===
@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (progressPercentage > 100) progressPercentage = 100;
 
     // 3. Mostrar Resultados
-    displayResults(monthlySavingsNeeded, progressPercentage, monthsRemaining);
+    displayResults(monthlySavingsNeeded, progressPercentage, monthsRemaining, totalCost, initialSavings);
   }
 
-  async function displayResults(monthly, progress, months) {
+  async function displayResults(monthly, progress, months, totalCost, initialSavings) {
     // Switch vista
     SimulatorUtils.showResults(resultsPlaceholder, resultsContent);
 
@@ -84,9 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Barra de progreso (con delay para animación)
     SimulatorUtils.animateProgressBar(progressBar, progress, 100);
 
-    await saveSimulatorData({
-      calculated_plan_needed: monthly,
-      calculated_months_needed: months,
-    });
+    // Guardar a Supabase
+    try {
+      await saveSavingsGoal({
+        target_amount: totalCost,
+        current_amount: initialSavings,
+        monthly_savings: monthly,
+        remaining_time: months,
+      });
+    } catch (error) {
+      console.error("Failed to save savings goal:", error);
+    }
   }
 });
