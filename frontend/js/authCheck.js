@@ -27,12 +27,14 @@ const updateHeaderUI = (isAuthenticated, user) => {
 
   if (isAuthenticated && user) {
     headerActions.innerHTML = `
-      <div class="header-user-menu">
-        <span class="user-email">${user.email}</span>
-        <button class="btn btn-secondary" id="logout-btn">Cerrar sesión</button>
+      <button class="btn-profile" id="btn-profile"><i class="fa-solid fa-user"></i></button>
+      <div class="hidden-data">
+        <div class="menu-items"><i class="fa-regular fa-user"></i><span class="menu-item user-email">${user.email}</span></div>
+        <div class="menu-items" id="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="menu-item">Cerrar sesión</span> </div>
       </div>
     `;
 
+    document.getElementById("btn-profile").addEventListener("click", showProfileUser);
     document.getElementById("logout-btn").addEventListener("click", handleLogout);
   } else {
     headerActions.innerHTML = `
@@ -64,6 +66,11 @@ const initAuth = async () => {
     const { isAuthenticated, user } = await checkAuthStatus();
     updateHeaderUI(isAuthenticated, user);
   });
+};
+
+const showProfileUser = () => {
+  const profileUser = document.querySelector(".hidden-data");
+  profileUser.classList.toggle("visible-data");
 };
 
 // Cuando el documento este listo se ejecuta el inithAuth
