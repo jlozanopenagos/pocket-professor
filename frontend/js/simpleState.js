@@ -1,4 +1,4 @@
-import { supabase } from "./forms/supabaseClient";
+import { supabase } from "./forms/supabaseClient.js";
 
 export const saveSimulatorData = async (data) => {
   try {

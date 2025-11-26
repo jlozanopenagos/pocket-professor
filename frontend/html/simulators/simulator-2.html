@@ -1,146 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fondo de Emergencia - PocketProfessor</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fondo de Emergencia - PocketProfessor</title>
+    <link rel="stylesheet" href="../../css/layouts/header.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/layouts/footer.css" />
+    <link rel="stylesheet" href="../../css/simulators/simulator-base.css" />
+    <link rel="stylesheet" href="../../css/simulators/simulator-2.css" />
+  </head>
 
-  <link rel="stylesheet" href="../../css/layouts/header.css" />
-  <link rel="stylesheet" href="../../css/main.css" />
-  <link rel="stylesheet" href="../../css/layouts/footer.css" />
-  <link rel="stylesheet" href="../../css/simulators/simulator-base.css" />
-  <link rel="stylesheet" href="../../css/simulators/simulator-2.css" />
-</head>
+  <body>
+    <div id="header-container"></div>
 
-<body>
-  <div id="header-container"></div>
-
-  <main class="sim-main">
-    <div class="sim-container">
-
-      <div class="sim-header">
-        <h1>Fondo de Emergencia Realista</h1>
-        <p>
-          Define tu colchón de seguridad ideal y calcula el tiempo y
-          esfuerzo que te tomará crearlo. Duerme tranquilo sabiendo
-          que estás protegido.
-        </p>
-      </div>
-
-      <div class="sim-grid">
-        <div class="sim-controls">
-          <div class="controls-card">
-
-            <div class="control-group">
-              <label for="expenses-input">Gastos Mensuales Esenciales</label>
-              <div class="input-wrapper">
-                <span class="currency-symbol">$</span>
-                <input type="number" id="expenses-input" value="1500" min="0" />
-              </div>
-            </div>
-
-            <div class="control-group">
-              <div class="label-row">
-                <label>Meses de Cobertura Deseados:</label>
-                <span class="value-display highlight-blue" id="months-display">6 Meses</span>
-              </div>
-              <input type="range" id="months-slider" min="1" max="24" step="1" value="6" />
-              <div class="slider-labels">
-                <span>1</span>
-                <span>24</span>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label for="savings-input">Cantidad de Ahorro Mensual Dedicada</label>
-              <div class="input-wrapper">
-                <span class="currency-symbol">$</span>
-                <input type="number" id="savings-input" value="250" min="0" />
-              </div>
-            </div>
-
-          </div>
-
-          <button id="calculate-btn" class="action-btn primary-btn">
-            Calcular Mi Fondo
-            <span class="icon-calc">🧮</span>
-          </button>
+    <main class="sim-main">
+      <div class="sim-container">
+        <div class="sim-header">
+          <h1>Fondo de Emergencia Realista</h1>
+          <p>
+            Define tu colchón de seguridad ideal y calcula el tiempo y esfuerzo que te tomará crearlo. Duerme tranquilo
+            sabiendo que estás protegido.
+          </p>
         </div>
 
-        <div class="sim-results">
-
-          <div id="results-placeholder" class="results-state visible">
-            <h3>Tu Meta de Seguridad</h3>
-            <p class="placeholder-text">Aquí aparecerán los resultados de tu simulación.</p>
-
-            <div class="placeholder-content">
-              <div class="placeholder-icon-circle">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" class="icon-blue">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-              </div>
-              <p>
-                Ingresa tus datos para calcular el tiempo que te tomará
-                alcanzar tu fondo de emergencia ideal.
-              </p>
-            </div>
-          </div>
-
-          <div id="results-content" class="results-state hidden">
-            <h3>Tu Meta de Seguridad</h3>
-            <p class="disclaimer">
-              Estos son los resultados basados en los datos que proporcionaste.
-            </p>
-
-            <div class="result-highlight-card">
-              <span class="highlight-label">FONDO DE EMERGENCIA TOTAL</span>
-              <span class="highlight-value" id="result-total">$0.00</span>
-              <span class="highlight-detail" id="result-calculation">0 $/mes × 0 meses</span>
-            </div>
-
-            <div class="time-section">
-              <h4>Tiempo Estimado para Alcanzar tu Meta</h4>
-              <div class="time-row">
-                <span class="time-months" id="result-months">0 Meses</span>
-                <span class="time-years" id="result-years">0 años</span>
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="controls-card">
+              <div class="control-group">
+                <label for="expenses-input">Gastos Mensuales Esenciales</label>
+                <div class="input-wrapper">
+                  <span class="currency-symbol">$</span>
+                  <input type="number" id="expenses-input" value="1500" min="0" />
+                </div>
               </div>
 
-              <div class="time-bar">
-                <div class="time-fill"></div>
+              <div class="control-group">
+                <div class="label-row">
+                  <label>Meses de Cobertura Deseados:</label>
+                  <span class="value-display highlight-blue" id="months-display">6 Meses</span>
+                </div>
+                <input type="range" id="months-slider" min="1" max="24" step="1" value="6" />
+                <div class="slider-labels">
+                  <span>1</span>
+                  <span>24</span>
+                </div>
               </div>
 
-              <p class="time-description" id="time-description">
-                Ahorrando <strong>$0</strong> mensualmente.
-              </p>
+              <div class="control-group">
+                <label for="savings-input">Cantidad de Ahorro Mensual Dedicada</label>
+                <div class="input-wrapper">
+                  <span class="currency-symbol">$</span>
+                  <input type="number" id="savings-input" value="250" min="0" />
+                </div>
+              </div>
             </div>
 
-            <button class="action-btn success-btn">
-              Crear Plan de Ahorro
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
-                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                <polyline points="7 3 7 8 15 8"></polyline>
-              </svg>
+            <button id="calculate-btn" class="action-btn primary-btn">
+              Calcular Mi Fondo
+              <span class="icon-calc">🧮</span>
             </button>
           </div>
 
+          <div class="sim-results">
+            <div id="results-placeholder" class="results-state visible">
+              <h3>Tu Meta de Seguridad</h3>
+              <p class="placeholder-text">Aquí aparecerán los resultados de tu simulación.</p>
+
+              <div class="placeholder-content">
+                <div class="placeholder-icon-circle">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon-blue"
+                  >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <p>Ingresa tus datos para calcular el tiempo que te tomará alcanzar tu fondo de emergencia ideal.</p>
+              </div>
+            </div>
+
+            <div id="results-content" class="results-state hidden">
+              <h3>Tu Meta de Seguridad</h3>
+              <p class="disclaimer">Estos son los resultados basados en los datos que proporcionaste.</p>
+
+              <div class="result-highlight-card">
+                <span class="highlight-label">FONDO DE EMERGENCIA TOTAL</span>
+                <span class="highlight-value" id="result-total">$0.00</span>
+                <span class="highlight-detail" id="result-calculation">0 $/mes × 0 meses</span>
+              </div>
+
+              <div class="time-section">
+                <h4>Tiempo Estimado para Alcanzar tu Meta</h4>
+                <div class="time-row">
+                  <span class="time-months" id="result-months">0 Meses</span>
+                  <span class="time-years" id="result-years">0 años</span>
+                </div>
+
+                <div class="time-bar">
+                  <div class="time-fill"></div>
+                </div>
+
+                <p class="time-description" id="time-description">Ahorrando <strong>$0</strong> mensualmente.</p>
+              </div>
+
+              <button class="action-btn success-btn">
+                Crear Plan de Ahorro
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="margin-left: 8px"
+                >
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                  <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                  <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <div id="footer-container"></div>
+    <div id="footer-container"></div>
 
-  <script src="../../js/layout-loader.js"></script>
-  <script src="../../js/simulators/simulator-2.js"></script>
-  <script src="../../js/simulators/simulator-utils.js"></script>
-</body>
-
+    <script src="../../js/layout-loader.js"></script>
+    <script type="module" src="../../js/simulators/simulator-2.js"></script>
+    <script type="module" src="../../js/simulators/simulator-utils.js"></script>
+  </body>
 </html>
