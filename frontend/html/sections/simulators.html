@@ -43,140 +43,93 @@
         </p>
       </div>
     </div>
-    <div class="simuladores-container">
-      <section class="how-it-works-section">
-        <h2 class="section-title">Visualiza el potencial de tu ahorro con escenarios reales</h2>
-        <p class="section-subtitle">
-          Nuestra plataforma te permite <strong>simular y experimentar con diferentes estrategias de ahorro
-          </strong>antes
-          de aplicarlas a tu vida. ¡Juega con los números y observa cómo crecen tus posibilidades!
+
+    <a href="/pocket-professor/frontend/html/simulators/simulators-landing.html">
+      <button class="section-btn">Visualizar Simuladores</button>
+    </a>
+  </section>
+
+  <!-- VISTA DE INVITADO (Visible por defecto) -->
+  <div id="guest-view">
+    <section class="savings-simulator-section">
+      <div class="simulator-content">
+        <h2 class="section-title">Toma el control de tus finanzas</h2>
+        <p class="section-description">
+          Nuestro dashboard intuitivo consolida todos tus datos financieros en un solo lugar. Monitoriza tus hábitos de
+          ahorro, sigue tu progreso en tiempo real y recibe insights personalizados para mantener el rumbo hacia tus
+          objetivos.
         </p>
 
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon learn-icon"></div>
-            <h3 class="card-title">Ahorro Automático Programado</h3>
-            <p class="card-description">
-              Descubre cuánto puedes acumular al automatizar una pequeña cantidad semanal o mensual. ¡El piloto
-              automático
-              de tu futuro financiero!
-            </p>
+        <div class="simulator-controls">
+          <div class="control-group">
+            <label for="initial-deposit">Progreso de metas</label>
+            <input type="range" id="initial-deposit" min="0" max="10000" value="1000" />
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon simulate-icon"></div>
-            <h3 class="card-title">Fondo de emergencia realista</h3>
-            <p class="card-description">
-              Define tu colchón de seguridad ideal y calcula el tiempo y esfuerzo que te tomará crearlo. Duerme
-              tranquilo
-              sabiendo que estás protegido.
-            </p>
+          <div class="control-group">
+            <label for="monthly-contribution">Consistencia de hábitos</label>
+            <input type="range" id="monthly-contribution" min="0" max="1000" value="250" />
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon visualize-icon"></div>
-            <h3 class="card-title">Meta de ahorro para viajes/hobbies</h3>
-            <p class="card-description">
-              Ingresa el costo de tu próximo viaje o ese hobby que tanto deseas y averigua el plan de ahorro exacto para
-              hacerlo realidad.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon compare-icon"></div>
-            <h3 class="card-title">El poder del interés compuesto</h3>
-            <p class="card-description">
-              Un simulador clave para ver cómo tu dinero trabaja por ti a lo largo del tiempo. ¡Maximiza tus ganancias
-              sin
-              esfuerzo extra!
-            </p>
+          <div class="control-group">
+            <label for="time-period">Periodo de tiempo ahorrado</label>
+            <input type="range" id="time-period" min="1" max="50" value="10" />
           </div>
         </div>
-
-        <a href="/pocket-professor/frontend/html/simulators/simulators-landing.html">
-          <button class="section-btn">Visualizar Simuladores</button>
-        </a>
-      </section>
-
-      <!-- VISTA DE INVITADO (Visible por defecto) -->
-      <div id="guest-view">
-        <section class="savings-simulator-section">
-          <div class="simulator-content">
-            <h2 class="section-title">Toma el control de tus finanzas</h2>
-            <p class="section-description">
-              Nuestro dashboard intuitivo consolida todos tus datos financieros en un solo lugar. Monitoriza tus hábitos
-              de
-              ahorro, sigue tu progreso en tiempo real y recibe insights personalizados para mantener el rumbo hacia tus
-              objetivos.
-            </p>
-
-            <div class="simulator-controls">
-              <div class="control-group">
-                <label for="initial-deposit">Progreso de metas</label>
-                <input type="range" id="initial-deposit" min="0" max="10000" value="1000" />
-              </div>
-              <div class="control-group">
-                <label for="monthly-contribution">Consistencia de hábitos</label>
-                <input type="range" id="monthly-contribution" min="0" max="1000" value="250" />
-              </div>
-              <div class="control-group">
-                <label for="time-period">Periodo de tiempo ahorrado</label>
-                <input type="range" id="time-period" min="1" max="50" value="10" />
-              </div>
-            </div>
-          </div>
-
-          <div class="simulator-chart">
-            <img src="assets/images/dashboard.jpg" alt="Gráfico de barras que muestra el crecimiento del ahorro"
-              class="chart-image" />
-          </div>
-        </section>
       </div>
 
-      <!-- VISTA DE USUARIO (Oculta por defecto) -->
-      <div id="user-dashboard" style="display: none;">
-        <section class="savings-simulator-section">
-          <div class="simulator-content">
-            <h2 class="section-title">Tu Progreso Financiero</h2>
-            <p class="section-description">
-              Bienvenido a tu espacio personal. Aquí tienes un resumen de tus simulaciones activas.
-              ¡Sigue ajustando tus metas para alcanzar la libertad financiera!
-            </p>
-
-            <div class="simulator-controls dashboard-grid">
-              <!-- Ahorro Automático -->
-              <div class="control-group dashboard-card">
-                <label>Ahorro Automático</label>
-                <div class="stat-value" id="dash-auto-total">$0</div>
-                <div class="stat-sub">Interés: <span id="dash-auto-interest">$0</span></div>
-              </div>
-
-              <!-- Fondo de Emergencia -->
-              <div class="control-group dashboard-card">
-                <label>Fondo de Emergencia</label>
-                <div class="stat-value" id="dash-emergency-total">$0</div>
-                <div class="stat-sub">Meta: <span id="dash-emergency-months">0</span> meses</div>
-              </div>
-
-              <!-- Meta de Ahorro -->
-              <div class="control-group dashboard-card">
-                <label>Meta de Ahorro</label>
-                <div class="stat-value" id="dash-goal-monthly">$0/mes</div>
-                <div class="stat-sub">Faltan: <span id="dash-goal-months">0</span> meses</div>
-              </div>
-
-              <!-- Interés Compuesto -->
-              <div class="control-group dashboard-card">
-                <label>Interés Compuesto</label>
-                <div class="stat-value" id="dash-compound-total">$0</div>
-                <div class="stat-sub">Ganancia: <span id="dash-compound-interest">$0</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="simulator-chart">
-            <img src="assets/images/dashboard.jpg" alt="Dashboard Personalizado" class="chart-image" />
-          </div>
-        </section>
+      <div class="simulator-chart">
+        <img
+          src="assets/images/dashboard.jpg"
+          alt="Gráfico de barras que muestra el crecimiento del ahorro"
+          class="chart-image"
+        />
       </div>
-    </div>
+    </section>
+  </div>
+
+  <!-- VISTA DE USUARIO (Oculta por defecto) -->
+  <div id="user-dashboard" style="display: none">
+    <section class="savings-simulator-section">
+      <div class="simulator-content">
+        <h2 class="section-title">Tu Progreso Financiero</h2>
+        <p class="section-description">
+          Bienvenido a tu espacio personal. Aquí tienes un resumen de tus simulaciones activas. ¡Sigue ajustando tus
+          metas para alcanzar la libertad financiera!
+        </p>
+
+        <div class="simulator-controls dashboard-grid">
+          <!-- Ahorro Automático -->
+          <div class="control-group dashboard-card">
+            <label>Ahorro Automático</label>
+            <div class="stat-value" id="dash-auto-total">$0</div>
+            <div class="stat-sub">Interés: <span id="dash-auto-interest">$0</span></div>
+          </div>
+
+          <!-- Fondo de Emergencia -->
+          <div class="control-group dashboard-card">
+            <label>Fondo de Emergencia</label>
+            <div class="stat-value" id="dash-emergency-total">$0</div>
+            <div class="stat-sub">Meta: <span id="dash-emergency-months">0</span> meses</div>
+          </div>
+
+          <!-- Meta de Ahorro -->
+          <div class="control-group dashboard-card">
+            <label>Meta de Ahorro</label>
+            <div class="stat-value" id="dash-goal-monthly">$0/mes</div>
+            <div class="stat-sub">Faltan: <span id="dash-goal-months">0</span> meses</div>
+          </div>
+
+          <!-- Interés Compuesto -->
+          <div class="control-group dashboard-card">
+            <label>Interés Compuesto</label>
+            <div class="stat-value" id="dash-compound-total">$0</div>
+            <div class="stat-sub">Ganancia: <span id="dash-compound-interest">$0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="simulator-chart">
+        <img src="assets/images/dashboard.jpg" alt="Dashboard Personalizado" class="chart-image" />
+      </div>
+    </section>
+  </div>
+</div>
